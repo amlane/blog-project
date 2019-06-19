@@ -37,7 +37,7 @@ const indexQuery = graphql`
           id
           frontmatter {
             title
-            date
+            date(formatString: "MMM Do YYYY")
             author
             path
           }

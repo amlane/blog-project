@@ -8,7 +8,7 @@ const Post = ({ title, author, path, date, body }) => {
       <CardBody>
         <CardTitle>{title}</CardTitle>
         <CardSubtitle>
-          <span className="text-info">{date}</span>
+          <span className="text-info">{date}</span> by{" "}
           <span className="text-info">{author}</span>
         </CardSubtitle>
         <CardText>{body}</CardText>
