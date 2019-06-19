@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-catch-links`, // stops refresh on page navigation
     {
       resolve: `gatsby-source-filesystem`,
       options: {
