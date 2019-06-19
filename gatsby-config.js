@@ -8,11 +8,19 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`, // stops refresh on page navigation
+    `gatsby-transformer-remark`, // converts markdown files to HTML pages
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/pages`, //import pages folder containing md files
       },
     },
     `gatsby-transformer-sharp`,
