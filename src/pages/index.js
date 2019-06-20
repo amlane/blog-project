@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby"
 import Post from "../components/Post"
 import { Row, Col } from "reactstrap"
+import Sidebar from "../components/Sidebar"
 
 const IndexPage = () => (
   <Layout>
@@ -24,6 +25,7 @@ const IndexPage = () => (
                     path={node.frontmatter.path}
                     body={node.excerpt}
                     fluid={node.frontmatter.image.childImageSharp.fluid}
+                    tags={node.frontmatter.tags}
                   />
                 ))}
               </div>
@@ -32,9 +34,7 @@ const IndexPage = () => (
         />
       </Col>
       <Col md="4">
-        <div
-          style={{ width: "100%", height: "100%", backgroundColor: "gray" }}
-        ></div>
+        <Sidebar />
       </Col>
     </Row>
   </Layout>
@@ -42,7 +42,7 @@ const IndexPage = () => (
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -58,6 +58,7 @@ const indexQuery = graphql`
                 }
               }
             }
+            tags
           }
           excerpt
         }
